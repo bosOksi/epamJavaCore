@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         calcEquation(1, 3, 2);
     }
-    //Find the real roots of quadratic equation of the form of ax^2 + bx + c = 0 (a > 0)
+    //Find the real roots of quadratic equation of the form of ax^2 + bx + c = 0 (a != 0)
     public static void calcEquation (double a, double b, double c) {
         double discriminant = b * b - 4 * a * c;
         if (discriminant >= 0) {
