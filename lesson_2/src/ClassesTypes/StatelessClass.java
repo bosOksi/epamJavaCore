@@ -1,0 +1,40 @@
+package ClassesTypes;
+
+public class StatelessClass{
+
+    public static void calcEquation (double a, double b, double c) {
+
+        if (getDiscriminant(a,b,c) >= 0) {
+            printRoots(getFirstRoot(a, b, getDiscriminant(a,b,c)), getSecondRoot(a, b, getDiscriminant(a,b,c)));
+        }
+        else {
+            printNoRoots();
+        }
+    }
+
+    public static double getDiscriminant(double a, double b, double c) {
+        return b * b - 4 * a * c;
+    }
+
+    public static double getFirstRoot(double a, double b, double discriminant){
+        return (-b + Math.sqrt(discriminant)) / (2*a);
+    }
+
+    public static double getSecondRoot(double a, double b, double discriminant){
+        return (-b - Math.sqrt(discriminant)) / (2*a);
+    }
+
+    public static void printRoots(double x1, double x2) {
+        System.out.println("x1 = " + x1);
+        System.out.println("x2 = " + x2);
+    }
+
+    public static void printNoRoots() {
+        System.out.println("There are no real roots");
+    }
+
+
+    public static void main(String[] args) {
+        calcEquation(1,3,2);
+    }
+}
