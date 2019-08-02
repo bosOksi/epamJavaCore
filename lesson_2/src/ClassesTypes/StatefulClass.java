@@ -2,41 +2,57 @@ package ClassesTypes;
 
 public class StatefulClass{
 
-    public static void calcEquation (double a, double b, double c) {
-        double discriminant = getDiscriminant(a,b,c);
+    double a;
+    double b;
+    double c;
+    double discriminant;
+    double x1;
+    double x2;
+
+    public StatefulClass(double a, double b, double c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    private void calcEquation() {
+        discriminant = getDiscriminant();
+
         if (discriminant >= 0) {
-            double x1 = getFirstRoot(a, b, discriminant);
-            double x2 = getSecondRoot(a, b, discriminant);
-            printRoots(x1, x2);
+            x1 = getFirstRoot();
+            x2 = getSecondRoot();
+            printRoots();
         }
-         else {
+        else {
             printNoRoots();
         }
     }
 
-    public static double getDiscriminant(double a, double b, double c) {
+    private double getDiscriminant() {
         return b * b - 4 * a * c;
     }
 
-    public static double getFirstRoot(double a, double b, double discriminant){
+    private double getFirstRoot(){
         return (-b + Math.sqrt(discriminant)) / (2*a);
     }
 
-    public static double getSecondRoot(double a, double b, double discriminant){
+    private double getSecondRoot(){
         return (-b - Math.sqrt(discriminant)) / (2*a);
     }
 
-    public static void printRoots(double x1, double x2) {
+    private void printRoots() {
         System.out.println("x1 = " + x1);
         System.out.println("x2 = " + x2);
     }
 
-    public static void printNoRoots() {
+    private void printNoRoots() {
         System.out.println("There are no real roots");
     }
 
 
     public static void main(String[] args) {
-        calcEquation(1,3,2);
+        StatefulClass StatefulObject = new StatefulClass(1,3,2);
+        StatefulObject.calcEquation();
     }
 }
+
