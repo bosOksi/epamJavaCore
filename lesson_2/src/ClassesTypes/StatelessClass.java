@@ -2,10 +2,14 @@ package ClassesTypes;
 
 public class StatelessClass{
 
-    public static void calcEquation (double a, double b, double c) {
 
-        if (getDiscriminant(a,b,c) >= 0) {
-            printRoots(getFirstRoot(a, b, getDiscriminant(a,b,c)), getSecondRoot(a, b, getDiscriminant(a,b,c)));
+
+    public static void calcEquation (double a, double b, double c) {
+        double discriminant = getDiscriminant(a,b,c);
+        if (discriminant >= 0) {
+            double firstRoot = getFirstRoot(a, b, discriminant);
+            double secondRoot = getSecondRoot(a, b, discriminant);
+            printRoots(firstRoot, secondRoot);
         }
         else {
             printNoRoots();
